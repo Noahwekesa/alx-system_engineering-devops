@@ -1,1 +1,1 @@
-shell_redirections for hello world
+shell redictions
