@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bash scripting to display currently running processes
+
+# Display a header for the process list
+echo "PID   PPID  USER     COMMAND"
+
+# Use the ps command to list all processes
+ps
