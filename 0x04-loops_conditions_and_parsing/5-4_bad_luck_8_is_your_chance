@@ -3,12 +3,12 @@
 
 count=1
 
-while [ $count -le 10 ]
+while [ "$count" -le 10 ]
 do
-    if [ $count -eq 4 ]
+    if [ "$count" -eq 4 ]
     then
         echo "Bad luck"
-    elif [ $count -eq 8 ]
+    elif [ "$count" -eq 8 ]
     then
         echo "Good luck"
     else
