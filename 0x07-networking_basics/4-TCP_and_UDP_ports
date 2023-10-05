@@ -1,15 +1,4 @@
 #!/usr/bin/env bash
 # Bash Script to Display Listening Ports
 
-# Use netstat to display listening sockets
-netstat -tlnp | awk 'NR>2 {print $4, $7}' | while read line; do
-    # Extract the port and PID from the netstat output
-    port=$(echo $line | awk '{split($1, a, ":"); print a[length(a)]}')
-    pid=$(echo $line | awk '{split($2, a, "/"); print a[1]}')
-
-    # Get the program name associated with the PID
-    program=$(ps -p $pid -o comm=)
-
-    # Print the port, PID, and program name
-    echo "Port: $port, PID: $pid, Program: $program"
-done
+netstat -lp
