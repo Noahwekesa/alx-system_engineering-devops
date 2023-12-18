@@ -1,0 +1,4 @@
+ufc allow 22/top
+ufc allow 80/tcp
+ufc allow 443/tcp
+ufw enable
