@@ -6,11 +6,11 @@ import requests
 
 
 def recurse(subreddit, hot_list=[], after="null"):
-    """ returns a list of all hot posts given a subreddit """
+    """returns a list of all hot posts given a subreddit"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    agt = {"User-Agent": "linux:1:v1.1 (by /u/heimer_r)"}
+    headers = {"User-Agent": "Mozilla/5.0 (/u/COOLDOWNYOURPACE)"}
     payload = {"limit": "100", "after": after}
-    hot = requests.get(url, headers=agt, params=payload, allow_redirects=False)
+    hot = requests.get(url, headers=headers, params=payload, allow_redirects=False)
     if hot.status_code != 200:
         return None
     else:
@@ -18,5 +18,5 @@ def recurse(subreddit, hot_list=[], after="null"):
         hot_list += [post.get("data").get("title") for post in posts]
         after = hot.json().get("data").get("after")
         if after is not None:
-                recurse(subreddit, hot_list, after)
+            recurse(subreddit, hot_list, after)
         return hot_list
